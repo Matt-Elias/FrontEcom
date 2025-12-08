@@ -1,4 +1,6 @@
+# ==========================
 # Logs
+# ==========================
 logs
 *.log
 npm-debug.log*
@@ -7,18 +9,57 @@ yarn-error.log*
 pnpm-debug.log*
 lerna-debug.log*
 
-node_modules
-dist
-dist-ssr
-*.local
+# ==========================
+# Dependency directories
+# ==========================
+node_modules/
 
-# Editor directories and files
+# ==========================
+# Build output
+# ==========================
+dist/
+dist-ssr/
+
+# ==========================
+# Environment variables
+# ==========================
+*.local
+.env
+.env.local
+.env.development.local
+.env.production.local
+
+# ==========================
+# Editor directories & settings
+# ==========================
 .vscode/*
 !.vscode/extensions.json
-.idea
+.idea/
 .DS_Store
 *.suo
 *.ntvs*
 *.njsproj
 *.sln
-*.sw?
+*.swp
+*.swm
+*.swa
+*.swx
+
+# ==========================
+# Vite cache
+# ==========================
+.vite/
+
+# ==========================
+# Windows / OneDrive junk
+# ==========================
+Thumbs.db
+desktop.ini
+*.tmp
+~$*
+*.lnk
+
+# ==========================
+# Maps
+# ==========================
+*.map

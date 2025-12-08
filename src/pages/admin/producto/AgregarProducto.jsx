@@ -1,6 +1,7 @@
 import { useState } from "react"
 import { IoMdClose, IoMdSearch } from "react-icons/io"
 import { FiUpload } from "react-icons/fi"
+import { Calendar } from "@heroui/react"
 
 function AgregarProducto({ onClose, onAgregar }) {
   const [formData, setFormData] = useState({
@@ -67,7 +68,7 @@ function AgregarProducto({ onClose, onAgregar }) {
   }
 
   return (
-    <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4">
+    <div className="fixed inset-0 bg-background bg-opacity-50 flex items-center justify-center z-50 p-4">
       <div className="bg-white rounded-lg shadow-xl w-full max-w-2xl max-h-[90vh] overflow-y-auto">
         {/* Header */}
         <div className="flex items-center justify-between p-6 border-b border-gray-200">
@@ -249,6 +250,7 @@ function AgregarProducto({ onClose, onAgregar }) {
             >
               Agregar
             </button>
+            <Calendar color="secondary"/>
           </div>
         </form>
       </div>
