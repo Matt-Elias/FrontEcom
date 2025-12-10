@@ -20,6 +20,10 @@ import CrudUsuario from "./pages/admin/usuario/CrudUsuario";
 import AgregarUsuario from "./pages/admin/usuario/AgregarUsuario";
 import AgregarCategoria from "./pages/admin/categoria/AgregarCategoria"
 import AgregarProducto from "./pages/admin/producto/AgregarProducto";
+import HomeEmpleado from "./pages/empleado/HomeEmpleado";
+import AprobarPedido from "./pages/empleado/AprobarPedido";
+import ConfirmarEntrega from "./pages/empleado/ConfirmarEntrega";
+import PedidoEnCamino from "./pages/empleado/PedidoEnCamino";
 
 function App() {
   const [count, setCount] = useState(0);
@@ -27,7 +31,7 @@ function App() {
   return (
     <>
       <Navbar /> 
-      <AgregarProducto/> 
+      <ConfirmarEntrega/> 
     </>
   );
 }
