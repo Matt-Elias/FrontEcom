@@ -1,9 +1,15 @@
+import { Routes, Route, Navigate, useLocation } from "react-router-dom";
+import { isAuthenticated } from "./utils/auth";
+
+// Componentes
 import Navbar from "./components/Navbar";
 
 import Login from "./pages/publico/Login";
-import RecuperacionContra from "./pages/publico/RecuperacionContra";
 import CrearCuenta from "./pages/publico/CrearCuenta";
+import RecuperacionContra from "./pages/publico/RecuperacionContra";
 import ModificarContra from "./pages/publico/ModificarContra";
+
+import PerfilUsuario from "./pages/todos/PerfilUsuario";
 
 import HomeCliente from "./pages/cliente/HomeCliente";
 import InfoProducto from "./pages/cliente/InfoProducto";
@@ -16,33 +22,46 @@ import ProcesoEntrega from "./pages/cliente/ProcesoEntrega";
 
 import HomeAdmin from "./pages/admin/HomeAdmin";
 import CrudCategoria from "./pages/admin/categoria/CrudCategoria";
+import AgregarCategoria from "./pages/admin/categoria/AgregarCategoria";
 import CrudProducto from "./pages/admin/producto/CrudProducto";
+import AgregarProducto from "./pages/admin/producto/AgregarProducto";
 import CrudUsuario from "./pages/admin/usuario/CrudUsuario";
 import AgregarUsuario from "./pages/admin/usuario/AgregarUsuario";
-import AgregarCategoria from "./pages/admin/categoria/AgregarCategoria";
-import AgregarProducto from "./pages/admin/producto/AgregarProducto";
 
 import HomeEmpleado from "./pages/empleado/HomeEmpleado";
 import AprobarPedido from "./pages/empleado/AprobarPedido";
 import ConfirmarEntrega from "./pages/empleado/ConfirmarEntrega";
 import PedidoEnCamino from "./pages/empleado/PedidoEnCamino";
 
-import PerfilUsuario from "./pages/todos/PerfilUsuario";
-
-import { Routes, Route, Navigate } from "react-router-dom";
+// Rutas que NO deben mostrar navbar
+const noNavbarRoutes = [
+  "/login",
+  "/crear-cuenta",
+  "/recuperar-contra",
+  "/modificar-contra"
+];
 
 function App() {
+  const location = useLocation();
+  const showNavbar = isAuthenticated() && !noNavbarRoutes.includes(location.pathname);
+
   return (
     <>
-      <Navbar />
-      <div className="pt-4">
+
+      {showNavbar && <Navbar />}
+
+      <div className={showNavbar ? "pt-4" : ""}>
         <Routes>
-          {/* Público */}
+
+          {/* Rutas públicas */}
           <Route path="/" element={<Navigate to="/login" />} />
           <Route path="/login" element={<Login />} />
           <Route path="/crear-cuenta" element={<CrearCuenta />} />
           <Route path="/recuperar-contra" element={<RecuperacionContra />} />
           <Route path="/modificar-contra" element={<ModificarContra />} />
+
+          {/* Perfil */}
+          <Route path="/perfil" element={<PerfilUsuario />} />
 
           {/* Cliente */}
           <Route path="/cliente/home" element={<HomeCliente />} />
@@ -50,8 +69,8 @@ function App() {
           <Route path="/cliente/carrito" element={<CarritoCompras />} />
           <Route path="/cliente/compra/paso-1" element={<PrCompra1 />} />
           <Route path="/cliente/compra/paso-2" element={<PrCompra2 />} />
-          <Route path="/cliente/compra/paso-3" element={<PrCompra3 />} />
-          <Route path="/cliente/compra/paso-4" element={<PrCompra4 />} />
+          <Route path="/cliente/compra/paso-3" element={<PrCompra3 />} />);
+          <Route path="/cliente/compra/paso-4" element={<PrCompra4 />} />);
           <Route path="/cliente/entrega" element={<ProcesoEntrega />} />
 
           {/* Admin */}
@@ -69,13 +88,11 @@ function App() {
           <Route path="/empleado/confirmar-entrega" element={<ConfirmarEntrega />} />
           <Route path="/empleado/pedido-en-camino" element={<PedidoEnCamino />} />
 
-          {/* Perfil */}
-          <Route path="/perfil" element={<PerfilUsuario />} />
-
-          {/* Si no existe ruta */}
+          {/* 404 */}
           <Route path="*" element={<h1>404 - Página no encontrada</h1>} />
         </Routes>
       </div>
+
     </>
   );
 }
