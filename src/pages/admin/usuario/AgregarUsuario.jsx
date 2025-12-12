@@ -9,6 +9,10 @@ function AgregarUsuario({ onClose, onAgregar }) {
     correo: "",
     tipoUsuario: "",
     rol: "",
+    estado: "",
+    ciudad: "",
+    direccion: "",
+    codigoPostal: "",
   })
 
   const tiposUsuario = ["Administrador", "Empleado", "Cargador", "Repartidor", "Cliente"]
@@ -135,6 +139,70 @@ function AgregarUsuario({ onClose, onAgregar }) {
                 value={formData.rol}
                 onChange={handleInputChange}
                 placeholder="Rol"
+                className="w-full h-11 px-4 border border-gray-300 rounded-lg text-sm
+                         focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent
+                         transition-all duration-200"
+                required
+              />
+            </div>
+
+            {/* Estado */}
+            <div className="col-span-12 md:col-span-6">
+              <label className="block text-sm font-medium text-gray-700 mb-2">Estado</label>
+              <input
+                type="text"
+                name="estado"
+                value={formData.estado}
+                onChange={handleInputChange}
+                placeholder="Ingrese el estado"
+                className="w-full h-11 px-4 border border-gray-300 rounded-lg text-sm
+                         focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent
+                         transition-all duration-200"
+                required
+              />
+            </div>
+
+            {/* Ciudad */}
+            <div className="col-span-12 md:col-span-6">
+              <label className="block text-sm font-medium text-gray-700 mb-2">Ciudad</label>
+              <input
+                type="text"
+                name="ciudad"
+                value={formData.ciudad}
+                onChange={handleInputChange}
+                placeholder="Ingrese la ciudad"
+                className="w-full h-11 px-4 border border-gray-300 rounded-lg text-sm
+                         focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent
+                         transition-all duration-200"
+                required
+              />
+            </div>
+
+            {/* Dirección */}
+            <div className="col-span-12 md:col-span-6">
+              <label className="block text-sm font-medium text-gray-700 mb-2">Dirección</label>
+              <input
+                type="text"
+                name="direccion"
+                value={formData.direccion}
+                onChange={handleInputChange}
+                placeholder="Ingrese la dirección"
+                className="w-full h-11 px-4 border border-gray-300 rounded-lg text-sm
+                         focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent
+                         transition-all duration-200"
+                required
+              />
+            </div>
+
+            {/* Código Postal */}
+            <div className="col-span-12 md:col-span-6">
+              <label className="block text-sm font-medium text-gray-700 mb-2">Código Postal</label>
+              <input
+                type="text"
+                name="codigoPostal"
+                value={formData.codigoPostal}
+                onChange={handleInputChange}
+                placeholder="Ingrese el código postal"
                 className="w-full h-11 px-4 border border-gray-300 rounded-lg text-sm
                          focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent
                          transition-all duration-200"

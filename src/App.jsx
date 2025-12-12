@@ -24,6 +24,7 @@ import HomeEmpleado from "./pages/empleado/HomeEmpleado";
 import AprobarPedido from "./pages/empleado/AprobarPedido";
 import ConfirmarEntrega from "./pages/empleado/ConfirmarEntrega";
 import PedidoEnCamino from "./pages/empleado/PedidoEnCamino";
+import ModificarUsuario from "./pages/admin/usuario/ModificarUsuario";
 
 function App() {
   const [count, setCount] = useState(0);
@@ -31,7 +32,7 @@ function App() {
   return (
     <>
       <Navbar /> 
-      <ConfirmarEntrega/> 
+      <CrudCategoria/> 
     </>
   );
 }
